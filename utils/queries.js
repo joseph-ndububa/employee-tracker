@@ -1,33 +1,26 @@
 const db = require('../db/connection.js');
 const cTable = require('console.table');
+const prompt = require('../index.js');
 
 // view all employees
 const getAllEmployees = () => {
-    db.query(`SELECT * FROM employee`, (err, rows) => {
-        if (err) {
-            console.log(err);
-            return;
-        }
-        else {
+    db.promise().query(`SELECT * FROM employee`)
+        .then(([rows]) => {
             console.table(rows);
-            return;
-        }
-    })
+        })
+        .then(db.end())
+        .catch(console.log)
 }
 
 // view all roles
 
 const getAllRoles = () => {
-    db.query(`SELECT * FROM role`, (err, rows) => {
-        if (err) {
-            console.log(err);
-            return;
-        }
-        else {
+    db.promise().query(`SELECT * FROM role`)
+        .then(([rows]) => {
             console.table(rows);
-            return;
-        }
-    })
+        })
+        .then(db.end())
+        .catch(console.log)
 }
 
 // add a role
@@ -35,15 +28,18 @@ const getAllRoles = () => {
 const addRole = (title, salary) => {
     const sql = `INSERT INTO role (title, salary) VALUES (?,?)`;
     const params = [title, salary];
-    db.query(sql, params, (err, result) => {
-        if (err) {
-            console.log(err);
-            return;
-        }
-        else {
-            console.table(result.affectedRows)
-        }
-    })
+    db.promise().query(sql, params)
+        .then(getAllRoles())
+        .catch(console.log)
 }
 
-module.exports = { addRole, getAllEmployees, getAllRoles };
+const removeRole = (id) => {
+    console.log(id);
+    const sql = `DELETE FROM role WHERE id = ?`;
+    const params = [id];
+    db.promise().query(sql, params)
+        .then(getAllRoles())
+        .catch(console.log);
+}
+
+module.exports = { addRole, removeRole, getAllEmployees, getAllRoles };

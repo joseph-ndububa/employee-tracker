@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
-const { addRole, getAllEmployees, getAllRoles } = require('./utils/queries');
+const db = require('./db/connection.js');
+const { addRole, removeRole, getAllEmployees, getAllRoles } = require('./utils/queries');
 
 const showMenu = () => {
     return inquirer.prompt([
@@ -9,7 +10,7 @@ const showMenu = () => {
             message: 'What would you like to do?',
             choices: ['View All Employees', 'View All Employees By Department', 'View All Employees By Manager', 'Add Employee', 'Remove Employee', 'Update Employee Role', 'Update Employee Manager', 'View All Roles', 'Add Role', 'Remove Role', 'Exit'],
             validate: menuInput => {
-                if (menuInput == 'View All Employees') {
+                if (menuInput) {
                     return true;
                 }
                 else {
@@ -18,22 +19,29 @@ const showMenu = () => {
             }
         }
     ]).then(data => {
-        if (data.menu == 'View All Employees') {
-            getAllEmployees();
-            return;
-        }
-        else if (data.menu == 'View All Roles') {
-            getAllRoles();
-            return;
-        }
-        else if (data.menu == 'Add Role') {
-            roleMenu();
-            return;
-        }
+        selectionHandler(data);
     })
+};
+
+const selectionHandler = (data) => {
+    if (data.menu == 'View All Employees') {
+        getAllEmployees()
+    }
+    else if (data.menu == 'View All Roles') {
+        getAllRoles();
+    }
+    else if (data.menu == 'Add Role') {
+        addRolePrompt();
+    }
+    else if (data.menu == 'Remove Role') {
+        removeRolePrompt();
+    }
+    else if (data.menu == 'Exit') {
+        db.end();
+    }
 }
 
-const roleMenu = () => {
+const addRolePrompt = () => {
     return inquirer.prompt([
         {
             type: 'input',
@@ -66,4 +74,26 @@ const roleMenu = () => {
     })
 }
 
+const removeRolePrompt = () => {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'id',
+            message: `What is the ID of the role?`,
+            validate: roleTitle => {
+                if (roleTitle) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+        }
+    ]).then(data => {
+        removeRole(data.id);
+    })
+}
+
 showMenu();
+
+module.exports = showMenu;
