@@ -11,7 +11,7 @@ const showMenu = () => {
             type: 'list',
             name: 'menu',
             message: 'What would you like to do?',
-            choices: ['View All Employees', 'View All Departments', 'Add a Department', 'Add Employee', 'Remove Employee', 'Update Employee Role', 'View All Roles', 'Add Role', 'Remove Role', 'Remove a Department', 'Exit'],
+            choices: ['View All Employees', 'View All Departments', 'View All Roles', 'Add a Department', 'Add Role', 'Add Employee', 'Update Employee Role', 'Add Role', 'Remove a Department', 'Remove Role', 'Exit'],
             validate: menuInput => {
                 if (menuInput) {
                     return true;
