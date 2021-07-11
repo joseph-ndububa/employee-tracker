@@ -20,7 +20,7 @@ From the project's root directory.run node index. From there. the main menu will
 
 ![Screenshot](https://i.imgur.com/wkbx6QR.jpg)
 
-### [Video]()
+### [Video](https://drive.google.com/file/d/104yRHJXuS5q_Inz_EUeNdeJHTeHgcOKx/view)
 
 ## Questions
 
