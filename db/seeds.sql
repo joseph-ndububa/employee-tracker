@@ -1,0 +1,30 @@
+INSERT INTO department (dept_name) VALUES ('sales');
+INSERT INTO department (dept_name) VALUES ('it');
+INSERT INTO department (dept_name) VALUES ('service');
+INSERT INTO department (dept_name) VALUES ('parts');
+INSERT INTO department (dept_name) VALUES ('executive');
+INSERT INTO department (dept_name) VALUES ('accounting');
+
+INSERT INTO role (title, salary, dept_id) VALUES ('Salesman', 60000.00, 1);
+INSERT INTO role (title, salary, dept_id) VALUES ('Sales Manager', 75000.00, 1);
+INSERT INTO role (title, salary, dept_id) VALUES ('Network Admin', 50000.00, 2);
+INSERT INTO role (title, salary, dept_id) VALUES ('IT Manager', 75000.00, 2);
+INSERT INTO role (title, salary, dept_id) VALUES ('Parts Delivery Driver', 45000.00, 4);
+INSERT INTO role (title, salary, dept_id) VALUES ('Parts Manager', 75000.00, 4);
+INSERT INTO role (title, salary, dept_id) VALUES ('Technician', 60000.00, 3);
+INSERT INTO role (title, salary, dept_id) VALUES ('Service Manager', 75000.00, 3);
+INSERT INTO role (title, salary, dept_id) VALUES ('Accounting Clerk', 45000.00, 6);
+INSERT INTO role (title, salary, dept_id) VALUES ('Accounting Manager', 75000.00, 6);
+INSERT INTO role (title, salary, dept_id) VALUES ('General Manager', 200000.00, 5);
+
+INSERT INTO employee (first_name, last_name, role_id) VALUES ('Test_first1', 'Test_last1', 11);
+INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ('Test_first2', 'Test_last2', 10, 1);
+INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ('Test_first3', 'Test_last3', 9, 2);
+INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ('Test_first4', 'Test_last4', 8, 1);
+INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ('Test_first5', 'Test_last5', 7, 4);
+INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ('Test_first6', 'Test_last6', 6, 1);
+INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ('Test_first7', 'Test_last7', 5, 6);
+INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ('Test_first8', 'Test_last8', 4, 1);
+INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ('Test_first9', 'Test_last9', 3, 8);
+INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ('Test_first10', 'Test_last10', 2, 1);
+INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ('Test_first11', 'Test_last11', 1, 10);

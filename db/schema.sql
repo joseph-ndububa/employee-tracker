@@ -24,26 +24,3 @@ CREATE TABLE employee (
   CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES role(id) ON DELETE SET NULL,
   CONSTRAINT fk_manager FOREIGN KEY (manager_id) REFERENCES employee(id)
 );
-
-INSERT INTO department (dept_name) VALUES ('sales');
-INSERT INTO department (dept_name) VALUES ('marketing');
-INSERT INTO department (dept_name) VALUES ('it');
-INSERT INTO department (dept_name) VALUES ('finance');
-INSERT INTO department (dept_name) VALUES ('hr');
-
-INSERT INTO role (title, salary) VALUES ('salesman', 70000.00);
-INSERT INTO role (title, salary) VALUES ('tech support', 70000.00);
-INSERT INTO role (title, salary) VALUES ('manager', 70000.00);
-INSERT INTO role (title, salary) VALUES ('accounting clerk', 70000.00);
-INSERT INTO role (title, salary) VALUES ('payroll admin', 70000.00);
-
-INSERT INTO employee (first_name, last_name) VALUES ('jon', 'jones');
-INSERT INTO employee (first_name, last_name) VALUES ('jon', 'jones');
-INSERT INTO employee (first_name, last_name) VALUES ('jon', 'jones');
-INSERT INTO employee (first_name, last_name) VALUES ('jon', 'jones');
-INSERT INTO employee (first_name, last_name) VALUES ('jon', 'jones');
-INSERT INTO employee (first_name, last_name) VALUES ('jon', 'jones');
-INSERT INTO employee (first_name, last_name) VALUES ('jon', 'jones');
-INSERT INTO employee (first_name, last_name) VALUES ('jon', 'jones');
-INSERT INTO employee (first_name, last_name) VALUES ('jon', 'jones');
-INSERT INTO employee (first_name, last_name) VALUES ('jon', 'jones');
