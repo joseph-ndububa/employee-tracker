@@ -1,0 +1,24 @@
+{
+  "name": "employee-tracker",
+  "version": "1.0.0",
+  "description": "Employee database management application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josephn90/employee-tracker.git"
+  },
+  "author": "Joseph Ndububa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josephn90/employee-tracker/issues"
+  },
+  "homepage": "https://github.com/josephn90/employee-tracker#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^8.1.1",
+    "mysql2": "^2.2.5"
+  }
+}
