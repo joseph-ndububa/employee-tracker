@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-const getAllEmployees = require('./utils/queries');
+const { addRole, getAllEmployees, getAllRoles } = require('./utils/queries');
 
 const showMenu = () => {
     return inquirer.prompt([
@@ -20,7 +20,49 @@ const showMenu = () => {
     ]).then(data => {
         if (data.menu == 'View All Employees') {
             getAllEmployees();
+            return;
         }
+        else if (data.menu == 'View All Roles') {
+            getAllRoles();
+            return;
+        }
+        else if (data.menu == 'Add Role') {
+            roleMenu();
+            return;
+        }
+    })
+}
+
+const roleMenu = () => {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'role',
+            message: `What is the name of the role?`,
+            validate: roleTitle => {
+                if (roleTitle) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'salary',
+            message: `What is the salary for the role?`,
+            validate: roleSalary => {
+                if (roleSalary) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+        }
+    ]).then(data => {
+        addRole(data.role, data.salary);
     })
 }
 
