@@ -2,6 +2,9 @@ const inquirer = require('inquirer');
 const db = require('./db/connection.js');
 const { addRole, addEmployee, addDepartment, removeRole, getAllEmployees, getAllRoles, updateRole, getAllDepartments, removeDepartment } = require('./utils/queries');
 
+
+// main menu
+
 const showMenu = () => {
     return inquirer.prompt([
         {
@@ -22,6 +25,8 @@ const showMenu = () => {
         selectionHandler(data);
     })
 };
+
+// decide what to do after user selects option
 
 const selectionHandler = (data) => {
     if (data.menu == 'View All Employees') {
@@ -59,6 +64,8 @@ const selectionHandler = (data) => {
     }
 }
 
+// prompt user for adding role
+
 const addRolePrompt = () => {
     return inquirer.prompt([
         {
@@ -95,6 +102,8 @@ const addRolePrompt = () => {
         })
 }
 
+// prompt user for removing role
+
 const removeRolePrompt = () => {
     return inquirer.prompt([
         {
@@ -117,6 +126,8 @@ const removeRolePrompt = () => {
             showMenu()
         })
 }
+
+// prompt user for adding employee
 
 const addEmployeePrompt = () => {
     return inquirer.prompt([
@@ -180,6 +191,8 @@ const addEmployeePrompt = () => {
         })
 }
 
+// prompt user for updating an employee's role
+
 const updateRolePrompt = () => {
     return inquirer.prompt([
         {
@@ -200,6 +213,8 @@ const updateRolePrompt = () => {
             showMenu()
         })
 }
+
+// prompt user to add department
 
 const addDepartmentPrompt = () => {
     return inquirer.prompt([
@@ -224,6 +239,8 @@ const addDepartmentPrompt = () => {
             showMenu()
         })
 }
+
+// prompt user to remove department
 
 const removeDepartmentPrompt = () => {
     return inquirer.prompt([

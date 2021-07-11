@@ -29,6 +29,8 @@ async function addRole(title, salary) {
         .catch(console.log)
 }
 
+// remove a role
+
 async function removeRole(id) {
     const sql = `DELETE FROM role WHERE id = ?`;
     const params = [id];
@@ -38,6 +40,8 @@ async function removeRole(id) {
         .catch(console.log);
 }
 
+// add an employee
+
 async function addEmployee(first, last, role, manager) {
     const sql = `INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)`;
     const params = [first, last, role, manager];
@@ -45,6 +49,9 @@ async function addEmployee(first, last, role, manager) {
         .then(getAllEmployees())
         .catch(console.log);
 }
+
+// update an employee's role
+
 async function updateRole(emp_id, role_id) {
     const sql = `UPDATE employee SET role_id = ? WHERE id = ?`;
     const params = [role_id, emp_id];
@@ -52,6 +59,8 @@ async function updateRole(emp_id, role_id) {
         .then(getAllEmployees())
         .catch(console.log);
 }
+
+// get list of all departments
 
 async function getAllDepartments() {
     db.promise().query(`SELECT * FROM department`)
@@ -61,6 +70,8 @@ async function getAllDepartments() {
         .catch(console.log)
 }
 
+// add a department
+
 async function addDepartment(department) {
     const sql = `INSERT INTO department (dept_name) VALUES (?)`;
     const params = [department];
@@ -68,6 +79,8 @@ async function addDepartment(department) {
         .then(getAllDepartments())
         .catch(console.log);
 }
+
+// remove a department
 
 async function removeDepartment(department) {
     const sql = `DELETE FROM department WHERE id = ?`;
